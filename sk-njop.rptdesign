@@ -915,5 +915,78 @@
             <property name="contentType">auto</property>
             <text-property name="content"><![CDATA[Sesuai dengan ketentuan Pasal 77 ayat (1) Undang-Undang Nomor 28 Tahun 2009 tentang Pajak Daerah dan Retribusi Daerah dan Pasal 51 ayat (2) Peraturan Daerah Kabupaten Brebes Nomor 8 Tahun 2010 tentang Pajak Daerah Kabupaten Brebes sebagaimana telah diubah terakhir dengan Peraturan Daerah Kabupaten Brebes Nomor 2 Tahun 2013 tentang Perubahan Atas Peraturan Daerah Kabupaten Brebes Nomor 8 Tahun 2010 tentang Pajak Daerah Kabupaten Brebes, dengan ini menerangkan sesuai dengan basis data Dinas Pendapatan dan Pengelolaan Keuangan Kabupaten Brebes atas objek pajak :]]></text-property>
         </text>
+        <grid id="47">
+            <property name="marginTop">10px</property>
+            <property name="width">7.940476190476191in</property>
+            <column id="48">
+                <property name="width">2.0476190476190474in</property>
+            </column>
+            <column id="49">
+                <property name="width">0.2261904761904762in</property>
+            </column>
+            <column id="50">
+                <property name="width">5.666666666666667in</property>
+            </column>
+            <row id="51">
+                <cell id="52">
+                    <label id="67">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">Nomor Objek Pajak</text-property>
+                    </label>
+                </cell>
+                <cell id="53">
+                    <label id="71">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="54"/>
+            </row>
+            <row id="55">
+                <cell id="56">
+                    <label id="68">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">Jenis Objek Pajak</text-property>
+                    </label>
+                </cell>
+                <cell id="57">
+                    <label id="72">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="58"/>
+            </row>
+            <row id="59">
+                <cell id="60">
+                    <label id="69">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">Jenis Penggunaan Bangunan</text-property>
+                    </label>
+                </cell>
+                <cell id="61">
+                    <label id="73">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="62"/>
+            </row>
+            <row id="63">
+                <cell id="64">
+                    <label id="70">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">Letak Objek Pajak</text-property>
+                    </label>
+                </cell>
+                <cell id="65">
+                    <label id="74">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="66"/>
+            </row>
+        </grid>
     </body>
 </report>

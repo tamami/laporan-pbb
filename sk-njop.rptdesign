@@ -1143,10 +1143,10 @@ row["KD_BLOK"] + "-" + row["NO_URUT"] + "." + row["KD_JNS_OP"]</expression>
                 <property name="width">0.9880952380952381in</property>
             </column>
             <column id="99">
-                <property name="width">1.4047619047619047in</property>
+                <property name="width">0.7142857142857143in</property>
             </column>
             <column id="100">
-                <property name="width">1.130952380952381in</property>
+                <property name="width">1.8095238095238095in</property>
             </column>
             <column id="101">
                 <property name="width">1.130952380952381in</property>
@@ -1171,6 +1171,7 @@ row["KD_BLOK"] + "-" + row["NO_URUT"] + "." + row["KD_JNS_OP"]</expression>
                     <property name="textAlign">right</property>
                     <text-data id="163">
                         <property name="fontSize">12pt</property>
+                        <property name="paddingRight">5px</property>
                         <property name="dataSet">data_all</property>
                         <list-property name="boundDataColumns">
                             <structure>
@@ -1212,6 +1213,7 @@ row["KD_BLOK"] + "-" + row["NO_URUT"] + "." + row["KD_JNS_OP"]</expression>
                     <property name="textAlign">right</property>
                     <text-data id="170">
                         <property name="fontSize">12pt</property>
+                        <property name="paddingRight">5px</property>
                         <property name="dataSet">data_all</property>
                         <list-property name="boundDataColumns">
                             <structure>
@@ -1225,7 +1227,13 @@ row["KD_BLOK"] + "-" + row["NO_URUT"] + "." + row["KD_JNS_OP"]</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
-                <cell id="115"/>
+                <cell id="115">
+                    <text id="171">
+                        <property name="fontSize">12pt</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[m<sup>2</sup>]]></text-property>
+                    </text>
+                </cell>
                 <cell id="116"/>
                 <cell id="117"/>
                 <cell id="118"/>
@@ -1243,9 +1251,59 @@ row["KD_BLOK"] + "-" + row["NO_URUT"] + "." + row["KD_JNS_OP"]</expression>
                         <text-property name="text">:</text-property>
                     </label>
                 </cell>
-                <cell id="122"/>
-                <cell id="123"/>
-                <cell id="124"/>
+                <cell id="122">
+                    <property name="textAlign">right</property>
+                    <text-data id="172">
+                        <property name="fontSize">12pt</property>
+                        <property name="paddingRight">5px</property>
+                        <property name="dataSet">data_all</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">TOTAL_LUAS_BUMI</property>
+                                <text-property name="displayName">TOTAL_LUAS_BUMI</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["TOTAL_LUAS_BUMI"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr" type="javascript">Formatter.format(row["TOTAL_LUAS_BUMI"],"#,##0")</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="123">
+                    <text id="173">
+                        <property name="fontSize">12pt</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[m<sup>2</sup>  x]]></text-property>
+                    </text>
+                </cell>
+                <cell id="124">
+                    <property name="textAlign">right</property>
+                    <text-data id="175">
+                        <property name="fontSize">12pt</property>
+                        <property name="dataSet">data_all</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">NJOP_BUMI</property>
+                                <text-property name="displayName">NJOP_BUMI</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TOTAL_LUAS_BUMI</property>
+                                <text-property name="displayName">TOTAL_LUAS_BUMI</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["TOTAL_LUAS_BUMI"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr" type="javascript">if( row["TOTAL_LUAS_BUMI"] > 0 ) {
+  "Rp. " + 
+  (Formatter.format(row["NJOP_BUMI"] / row["TOTAL_LUAS_BUMI"],"#,##0"));
+} else {
+" - "
+}</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
                 <cell id="125"/>
                 <cell id="126"/>
             </row>
@@ -1307,5 +1365,21 @@ row["KD_BLOK"] + "-" + row["NO_URUT"] + "." + row["KD_JNS_OP"]</expression>
                 <cell id="150"/>
             </row>
         </grid>
+        <data id="174">
+            <structure name="numberFormat">
+                <property name="category">Custom</property>
+                <property name="pattern">¤###,##0.00</property>
+                <property name="locale">id_ID</property>
+            </structure>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">12000</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">Column Binding</property>
+        </data>
     </body>
 </report>

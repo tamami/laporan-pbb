@@ -4,6 +4,7 @@
     <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
     <list-property name="includeScripts">
         <property>resources/fungsi.js</property>
+        <property>resources/bilangan.js</property>
     </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
@@ -2678,7 +2679,231 @@ Formatter.format(row["NJOP_BUMI"] + row["NJOP_BNG"] + row["NJOP_BUMI_BEBAN"] + r
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <expression name="valueExpr" type="javascript">keKata(100);</expression>
+            <expression name="valueExpr">toAbjad(1);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="208">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(1000);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="209">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(104);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="210">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(150000);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="211">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(105000);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="212">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(100600);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="213">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(100070);</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="214">
+            <property name="fontSize">12pt</property>
+            <property name="dataSet">data_gabung</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">keKata(100002);</expression>
             <property name="contentType">html</property>
         </text-data>
     </body>

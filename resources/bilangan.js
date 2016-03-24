@@ -18,7 +18,20 @@ function toAbjad(angka) {
     
 function prosesPuluhan(angka) {
     int temp = angka / 10;
-    
+    if(temp  > 1) {
+      abjadLokal = " " + getHuruf(temp) + " PULUH" + prosesSatuan(angka % 10);
+    } else {
+      abjadLokal = prosesSatuan(angka);
+    }
+    return abjadLokal;
+}
+
+function prosesSatuan(angka) {
+  if(angka >= 1) {
+    return " " + getHuruf(angka);
+  } else {
+    return "";
+  }
 }
 
 function getHuruf(angka) {

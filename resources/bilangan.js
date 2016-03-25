@@ -48,9 +48,26 @@ function prosesRatusanRibu(angka, tambahan) {
 function prosesPuluhanRibu(angka, tambahan) {
   var tempPuluhanRibu = Math.floor(angka / 1000);
   var tempRatusan = angka % 1000;
+  var tempAbjadPuluhanRibu;
+  var tempAbjadRatusan;
 
-  if(tempRatusan >= 100) {
+  if(tempRatusan >= 100 && tempRatusan < 1000) {
+    tempAbjadRatusan = prosesRatusan(tempRatusan, false);
+  } if(tempRatusan >= 20 && tempRatusan < 100) {
+    tempAbjadRatusan = prosesPuluhan(tempRatusan, false).trim();
+  } else if(tempRatusan < 20) {
+    tempAbjadRatusan = prosesSatuan(tempRatusan, false).trim();
   }
+
+  if(tempPuluhanRibu >= 20) {
+    tempAbjadPuluhanRibu = prosesPuluhan(tempPuluhanRibu, false);
+  } else {
+    tempAbjadPuluhanRibu = prosesSatuan(tempPuluhanRibu, false);
+  }
+
+  if(tambahan) {
+    return tempAbjadPuluhanRibu + " RIBU " + tempAbjadRatusan;
+  } else return (tempAbjadPuluhanRibu + " RIBU " + tempAbjadRatusan).trim();
 }
 
 function prosesRibuan(angka, tambahan) {

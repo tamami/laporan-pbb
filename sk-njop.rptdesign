@@ -2679,232 +2679,119 @@ Formatter.format(row["NJOP_BUMI"] + row["NJOP_BNG"] + row["NJOP_BUMI_BEBAN"] + r
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <expression name="valueExpr">toAbjad(1);</expression>
+            <expression name="valueExpr">"( " + toAbjad(row["NJOP_BUMI"] + row["NJOP_BNG"] + row["NJOP_BUMI_BEBAN"] + row["NJOP_BNG_BEBAN"]) + " )";</expression>
             <property name="contentType">html</property>
         </text-data>
-        <text-data id="208">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(1000);</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="209">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(104);</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="210">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(150000);</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="211">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(105000);</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="212">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(100600);</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="213">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(100070);</expression>
-            <property name="contentType">html</property>
-        </text-data>
-        <text-data id="214">
-            <property name="fontSize">12pt</property>
-            <property name="dataSet">data_gabung</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">NJOP_BUMI</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BUMI_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BUMI_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">NJOP_BNG_BEBAN</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["NJOP_BNG_BEBAN"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <expression name="valueExpr">keKata(100002);</expression>
-            <property name="contentType">html</property>
-        </text-data>
+        <grid id="216">
+            <property name="marginTop">20px</property>
+            <property name="width">7.940476190476191in</property>
+            <column id="217">
+                <property name="textAlign">left</property>
+                <property name="width">1.8928571428571428in</property>
+            </column>
+            <column id="218">
+                <property name="textAlign">center</property>
+                <property name="width">0.30952380952380953in</property>
+            </column>
+            <column id="219">
+                <property name="textAlign">left</property>
+                <property name="width">5.738095238095238in</property>
+            </column>
+            <row id="220">
+                <cell id="221">
+                    <label id="229">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">Nama Wajib Pajak</text-property>
+                    </label>
+                </cell>
+                <cell id="222">
+                    <label id="231">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="223">
+                    <text-data id="233">
+                        <property name="fontSize">12pt</property>
+                        <property name="dataSet">data_all</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">NM_WP</property>
+                                <text-property name="displayName">NM_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["NM_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr" type="javascript">row["NM_WP"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="224">
+                <cell id="225">
+                    <label id="230">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">Alamat Wajib Pajak</text-property>
+                    </label>
+                </cell>
+                <cell id="226">
+                    <label id="232">
+                        <property name="fontSize">12pt</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="227">
+                    <text-data id="234">
+                        <property name="fontSize">12pt</property>
+                        <property name="dataSet">data_all</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">JALAN_WP</property>
+                                <text-property name="displayName">JALAN_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["JALAN_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BLOK_KAV_NO_WP</property>
+                                <text-property name="displayName">BLOK_KAV_NO_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BLOK_KAV_NO_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">RW_WP</property>
+                                <text-property name="displayName">RW_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["RW_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">RT_WP</property>
+                                <text-property name="displayName">RT_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["RT_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">KELURAHAN_WP</property>
+                                <text-property name="displayName">KELURAHAN_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["KELURAHAN_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">KOTA_WP</property>
+                                <text-property name="displayName">KOTA_WP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["KOTA_WP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr" type="javascript">row["JALAN_WP"] === null ? "" : row["JALAN_WP"] + " " +
+row["BLOK_KAV_NO_WP"] === null ? "" : row["BLOK_KAV_NO_WP"] + " RT." + 
+row["RT_WP"] === null ? "000" : row["RT_WP"] + "/RW." +
+row["RW_WP"] === null ? "00" : row["RW_WP"] + " " +
+row["KELURAHAN_WP"] === null ? "" : row["KELURAHAN_WP"] + " - " +
+row["KOTA_WP"] === null ? "" : row["KOTA_WP"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+        </grid>
     </body>
 </report>

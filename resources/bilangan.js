@@ -30,19 +30,100 @@ function toAbjad(angka) {
     if(angka >= 10000 && angka < 100000) {
         return prosesPuluhanRibu(angka) + abjad;
     }
+
+    if(angka >= 100000 && angka < 1000000) {
+        return prosesRatusanRibu(angka) + abjad;
+    }
+
+    if(angka >= 1000000 && angka < 10000000) {  // jutaan
+      return prosesJutaan(angka) + abjad;
+    }
+
+    if(angka >= 10000000 && angka < 100000000) { // puluhan juta
+      return prosesPuluhanJuta(angka) + abjad;
+    }
+
+    if(angka >= 100000000 && angka < 1000000000) { // ratusan juta
+      return prosesRatusanJuta(angka) + abjad;
+    }
+
+    if(angka >= 1000000000 && angka < 10000000000) { // milyaran
+      return prosesMilyaran(angka) + abjad;
+    }
 }    
+
+function prosesMilyaran(angka, tambahan) {
+}
+
+function prosesJutaanTigaDigit(angka, tambahan) {
+  if(angka > 
+}
+
+function prosesRatusanJuta(angka, tambahan) {
+  var tempRatusanJuta = Math.floor(angka / 1000000);
+  var tempRatusanRibu = angka % 1000000;
+  var tempAbjadRatusanJuta;
+  var tempAbjadRatusanRibu;
+
+  tempAbjadRatusanJuta = prosesRatusan(tempRatusanJuta, false);
+
+  tempAbjadRatusanRibu = prosesRatusanRibu(tempRatusanRibu, false);
+
+  if(tempRatusanRibu === 0)
+    return tempAbjadRatusanJuta + " JUTA";
+  else 
+    return tempAbjadRatusanJuta + " JUTA " + tempAbjadRatusanRibu;
+}
+
+function prosesPuluhanJuta(angka, tambahan) {
+  var tempPuluhanJuta = Math.floor(angka / 1000000);
+  var tempRatusanRibu = angka % 1000000;
+  var tempAbjadPuluhanJuta;
+  var tempAbjadRatusanRibu;
+
+  tempAbjadPuluhanJuta = prosesPuluhan(tempPuluhanJuta, false);
+
+  tempAbjadRatusanRibu = prosesRatusanRibu(tempRatusanRibu, false);
+
+  if(tempRatusanRibu === 0)
+    return tempAbjadPuluhanJuta + " JUTA";
+  else 
+    return tempAbjadPuluhanJuta + " JUTA " + tempAbjadRatusanRibu;
+}
+
+function prosesJutaan(angka, tambahan) {
+  var tempJutaan = Math.floor(angka / 1000000);
+  var tempRatusanRibu = angka % 1000000;
+  var tempAbjadJutaan;
+  var tempAbjadRatusanRibu;
+
+  tempAbjadJutaan = prosesSatuan(tempJutaan, false);
+
+  tempAbjadRatusanRibu = prosesRatusanRibu(tempRatusanRibu, false);
+
+  if(tempRatusanRibu === 0)
+    return tempAbjadJutaan.trim() + " JUTA";
+  else
+    return tempAbjadJutaan.trim() + " JUTA " + tempAbjadRatusanRibu;
+}
 
 function prosesRatusanRibu(angka, tambahan) {
   var tempRatusanRibu = Math.floor(angka / 1000);
-  var tempRibuan;
+  var tempRatusan = angka % 1000;
+  var tempAbjadRatusanRibu;
+  var tempAbjadRatusan;
   
+  tempAbjadRatusan = prosesRatusanTigaDigit(tempRatusan, false);
 
-  
-  if(tambahan) {
-    return prosesRatusan(tempRatusanRibu, false) + " RIBU" + prosesRibuan(angka % 1000, true);
-  } else {
-    return (prosesRatusan(tempRatusanRibu, false) + " RIBU" + prosesRibuan(angka % 1000, true));
-  }
+  tempAbjadRatusanRibu = prosesRatusanTigaDigit(tempRatusanRibu, false);
+ 
+  if(tempRatusanRibu > 0 && tempRatusan > 0) 
+    return tempAbjadRatusanRibu + " RIBU " + tempAbjadRatusan;
+  else if(tempRatusanRibu > 0 && tempRatusan === 0)
+    return tempAbjadRatusanRibu + " RIBU";
+  else if(tempRatusanRibu === 0 && tempRatusan > 0)
+    return tempAbjadRatusan;
+  else return "";
 }
 
 function prosesPuluhanRibu(angka, tambahan) {
@@ -51,13 +132,7 @@ function prosesPuluhanRibu(angka, tambahan) {
   var tempAbjadPuluhanRibu;
   var tempAbjadRatusan;
 
-  if(tempRatusan >= 100 && tempRatusan < 1000) {
-    tempAbjadRatusan = prosesRatusan(tempRatusan, false);
-  } if(tempRatusan >= 20 && tempRatusan < 100) {
-    tempAbjadRatusan = prosesPuluhan(tempRatusan, false).trim();
-  } else if(tempRatusan < 20) {
-    tempAbjadRatusan = prosesSatuan(tempRatusan, false).trim();
-  }
+  tempAbjadRatusan = prosesRatusanTigaDigit(tempRatusan, false);
 
   if(tempPuluhanRibu >= 20) {
     tempAbjadPuluhanRibu = prosesPuluhan(tempPuluhanRibu, false);
@@ -83,6 +158,16 @@ function prosesRibuan(angka, tambahan) {
     return abjadLokal + prosesRatusan(angka % 1000, true);
   else 
     return (abjadLokal + prosesRatusan(angka % 1000, true)).trim();
+}
+
+function prosesRatusanTigaDigit(angka, tambahan) {
+  if(angka >= 100 && angka < 1000) 
+    return prosesRatusan(angka, tambahan);
+  else if(angka >= 20 && angka < 100)
+    return prosesPuluhan(angka, tambahan);
+  else if(angka >= 1 && angka < 20)
+    return prosesSatuan(angka, tambahan).trim();
+  else return "";
 }
 
 function prosesRatusan(angka, tambahan) {

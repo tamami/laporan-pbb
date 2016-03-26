@@ -50,14 +50,136 @@ function toAbjad(angka) {
     if(angka >= 1000000000 && angka < 10000000000) { // milyaran
       return prosesMilyaran(angka) + abjad;
     }
+
+    if(angka >= 10000000000 && angka < 100000000000) { // puluhan milyar
+      return prosesPuluhanMilyar(angka) + abjad;
+    }
+
+    if(angka >= 100000000000 && angka < 1000000000000) { // ratusan milyar
+      return prosesRatusanMilyar(angka) + abjad;
+    }
+
+    if(angka >= 1000000000000 && angka < 10000000000000) { // trilyunan
+      return prosesTrilyunan(angka) + abjad;
+    }
+
+    if(angka >= 10000000000000 && angka < 100000000000000) { // puluhan trilyun
+      return prosesPuluhanTrilyun(angka) + abjad;
+    }
+
+    if(angka >= 100000000000000 && angka < 1000000000000000) { // ratusan trilyun
+      return prosesRatusanTrilyun(angka) + abjad;
+    }
 }    
 
-function prosesMilyaran(angka, tambahan) {
+function prosesRatusanTrilyun(angka, tambahan) {
+  var tempTrilyunan = Math.floor(angka / 1000000000000);
+  var tempMilyaran = angka % 1000000000000;
+  var tempAbjadTrilyunan;
+  var tempAbjadMilyaran;
+
+  tempAbjadTrilyunan = prosesRatusan(tempTrilyunan, false);
+  tempAbjadMilyaran = prosesRatusanMilyar(tempMilyaran, false);
+
+  if(tempTrilyunan === 0 && tempMilyaran === 0) 
+    return "";
+  else if(tempTrilyunan === 0 && tempMilyaran > 0) 
+    return tempAbjadMilyaran;
+  else if(tempTrilyunan > 0 && tempMilyaran === 0)
+    return tempAbjadTrilyunan + " TRILYUN";
+  else if(tempTrilyunan > 0 && tempMilyaran > 0)
+    return tempAbjadTrilyunan + " TRILYUN " + tempAbjadMilyaran;
 }
 
-function prosesJutaanTigaDigit(angka, tambahan) {
-  if(angka > 
+function prosesPuluhanTrilyun(angka, tambahan) {
+  var tempPuluhanTrilyun = Math.floor(angka / 1000000000000);
+  var tempMilyaran = angka % 1000000000000;
+  var tempAbjadTrilyunan;
+  var tempAbjadMilyaran;
+
+  tempAbjadTrilyunan = prosesPuluhan(tempPuluhanTrilyun, false);
+  tempAbjadMilyaran = prosesRatusanMilyar(tempMilyaran, false);
+
+  if(tempMilyaran === 0) 
+    return tempAbjadTrilyunan.trim() + " TRILYUN";
+  else 
+    return tempAbjadTrilyunan.trim() + " TRILYUN " + tempAbjadMilyaran;
 }
+
+function prosesTrilyunan(angka, tambahan) {
+  var tempTrilyunan = Math.floor(angka / 1000000000000);
+  var tempMilyaran = angka % 1000000000000;
+  var tempAbjadTrilyunan;
+  var tempAbjadMilyaran;
+
+  tempAbjadTrilyunan = prosesSatuan(tempTrilyunan, false);
+  tempAbjadMilyaran = prosesRatusanMilyar(tempMilyaran, false);
+
+  if(tempMilyaran === 0) {
+    return tempAbjadTrilyunan.trim() + " TRILYUN";
+  } else 
+    return tempAbjadTrilyunan.trim() + " TRILYUN " + tempAbjadMilyaran;
+}
+
+function prosesRatusanMilyar(angka, tambahan) {
+  var tempRatusanMilyar = Math.floor(angka / 1000000000);
+  var tempJutaan = angka % 1000000000;
+  var tempAbjadRatusanMilyar;
+  var tempAbjadJutaan;
+
+  tempAbjadRatusanMilyar = prosesRatusan(tempRatusanMilyar, false);
+  tempAbjadJutaan = prosesRatusanJuta(tempJutaan, false);
+
+  if(tempRatusanMilyar === 0 && tempJutaan === 0) 
+    return "";
+  else if(tempRatusanMilyar === 0 && tempJutaan > 0)
+    return tempAbjadJutaan;
+  else if(tempRatusanMilyar > 0 && tempJutaan === 0)
+    return tempAbjadRatusanMilyar + " MILYAR";
+  else if(tempRatusanMilyar > 0 && tempJutaan > 0)
+    return tempAbjadRatusanMilyar + " MILYAR " + tempAbjadJutaan;
+}
+
+function prosesPuluhanMilyar(angka, tambahan) {
+  var tempPuluhanMilyar = Math.floor(angka / 1000000000);
+  var tempJutaan = angka % 1000000000;
+  var tempAbjadPuluhanMilyar;
+  var tempAbjadJutaan;
+
+  tempAbjadPuluhanMilyar = prosesPuluhan(tempPuluhanMilyar, false);
+  tempAbjadJutaan = prosesRatusanJuta(tempJutaan, false);
+
+  if(tempJutaan === 0) 
+    return tempAbjadPuluhanMilyar + " MILYAR";
+  else 
+    return tempAbjadPuluhanMilyar + " MILYAR " + tempAbjadJutaan;
+}
+
+function prosesMilyaran(angka, tambahan) {
+  var tempMilyaran = Math.floor(angka / 1000000000);
+  var tempJutaan = angka % 1000000000;
+  var tempAbjadMilyaran;
+  var tempAbjadJutaan;
+
+  tempAbjadMilyaran = prosesSatuan(tempMilyaran, false);
+  tempAbjadJutaan = prosesRatusanJuta(tempJutaan, false);
+
+  if(tempJutaan === 0) 
+    return tempAbjadMilyaran.trim() + " MILYAR";
+  else
+    return tempAbjadMilyaran.trim() + " MILYAR " + tempAbjadJutaan;
+}
+
+/*
+function prosesJutaanTigaDigit(angka, tambahan) {
+  if(angka >= 1000000 && angka < 10000000) 
+    return prosesJutaan(angka, tambahan);
+  else if(angka >= 10000000 && angka < 100000000)
+    return prosesPuluhanJuta(angka, tambahan);
+  else if(angka >= 100000000 && angka < 1000000000)
+    return prosesRatusanJuta(angka, tambahan);
+}
+*/
 
 function prosesRatusanJuta(angka, tambahan) {
   var tempRatusanJuta = Math.floor(angka / 1000000);
@@ -69,7 +191,11 @@ function prosesRatusanJuta(angka, tambahan) {
 
   tempAbjadRatusanRibu = prosesRatusanRibu(tempRatusanRibu, false);
 
-  if(tempRatusanRibu === 0)
+  if(tempRatusanJuta === 0 && tempRatusanRibu === 0) 
+    return "";
+  else if(tempRatusanJuta === 0 && tempRatusanRibu > 0)
+    return tempAbjadRatusanRibu;
+  else if(tempRatusanJuta > 0 && tempRatusanRibu === 0)
     return tempAbjadRatusanJuta + " JUTA";
   else 
     return tempAbjadRatusanJuta + " JUTA " + tempAbjadRatusanRibu;

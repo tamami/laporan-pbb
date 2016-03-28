@@ -421,6 +421,11 @@
                         <property name="name">NM_KELURAHAN</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">KD_ZNT</property>
+                        <property name="dataType">string</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">Data Source</property>
@@ -605,6 +610,12 @@
                     <property name="nativeName">NM_KELURAHAN</property>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">KD_ZNT</property>
+                    <property name="nativeName">KD_ZNT</property>
+                    <property name="dataType">string</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT OP.KD_PROPINSI, OP.KD_DATI2, OP.KD_KECAMATAN, OP.KD_KELURAHAN,
   OP.KD_BLOK, OP.NO_URUT, OP.KD_JNS_OP, OP.JALAN_OP, OP.BLOK_KAV_NO_OP,
@@ -613,7 +624,7 @@
   SP.RT_WP, SP.KELURAHAN_WP, SP.KOTA_WP, ADM.KD_KANWIL, ADM.KD_KPPBB,
   PEG.NIP_BARU, PEG.NM_PEGAWAI, DECODE(OP_BUMI.JNS_BUMI, '1', 'TANAH DAN BANGUNAN', '2', 'KAVLING SIAP BANGUN',
   '3', 'TANAH KOSONG', '4', 'FASILITAS UMUM', '5', 'VAKUM') AS JENIS_BUMI,
-  JPB.NM_JPB, KEC.NM_KECAMATAN, KEL.NM_KELURAHAN
+  JPB.NM_JPB, KEC.NM_KECAMATAN, KEL.NM_KELURAHAN, OP_BUMI.KD_ZNT
   FROM
        PBB.DAT_OBJEK_PAJAK OP JOIN PBB.DAT_SUBJEK_PAJAK SP ON (SP.SUBJEK_PAJAK_ID = OP.SUBJEK_PAJAK_ID) JOIN PBB.REF_ADM_KPPBB ADM ON (ADM.KD_PROPINSI = OP.KD_PROPINSI AND ADM.KD_DATI2 = OP.KD_DATI2) JOIN PBB.POSISI_PEGAWAI POS_PEGAWAI ON (POS_PEGAWAI.KD_KANWIL = ADM.KD_KANWIL AND POS_PEGAWAI.KD_KPPBB = ADM.KD_KPPBB
     AND POS_PEGAWAI.KD_JABATAN = '10' AND POS_PEGAWAI.KD_WEWENANG = '10') JOIN PBB.PEGAWAI PEG ON (PEG.NIP = POS_PEGAWAI.NIP) JOIN PBB.DAT_OP_BUMI OP_BUMI ON (OP_BUMI.KD_PROPINSI = OP.KD_PROPINSI AND OP_BUMI.KD_DATI2 = OP.KD_DATI2
@@ -635,15 +646,15 @@
                 <property name="version">1.0</property>
                 <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="data_all" version="1.0">
-&lt;SQLStatement>SELECT OP.KD_PROPINSI, OP.KD_DATI2, OP.KD_KECAMATAN, OP.KD_KELURAHAN,&amp;#x0A;  OP.KD_BLOK, OP.NO_URUT, OP.KD_JNS_OP, OP.JALAN_OP, OP.BLOK_KAV_NO_OP,&amp;#x0A;  OP.RW_OP, OP.RT_OP, OP.TOTAL_LUAS_BUMI, OP.TOTAL_LUAS_BNG, OP.NJOP_BUMI,&amp;#x0A;  OP.NJOP_BNG, SP.NM_WP, SP.JALAN_WP, SP.BLOK_KAV_NO_WP, SP.RW_WP,&amp;#x0A;  SP.RT_WP, SP.KELURAHAN_WP, SP.KOTA_WP, ADM.KD_KANWIL, ADM.KD_KPPBB,&amp;#x0A;  PEG.NIP_BARU, PEG.NM_PEGAWAI, DECODE(OP_BUMI.JNS_BUMI, &amp;apos;1&amp;apos;, &amp;apos;TANAH DAN BANGUNAN&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;KAVLING SIAP BANGUN&amp;apos;,&amp;#x0A;  &amp;apos;3&amp;apos;, &amp;apos;TANAH KOSONG&amp;apos;, &amp;apos;4&amp;apos;, &amp;apos;FASILITAS UMUM&amp;apos;, &amp;apos;5&amp;apos;, &amp;apos;VAKUM&amp;apos;) AS JENIS_BUMI,&amp;#x0A;  JPB.NM_JPB, KEC.NM_KECAMATAN, KEL.NM_KELURAHAN&amp;#x0A;  FROM&amp;#x0A;       PBB.DAT_OBJEK_PAJAK OP JOIN PBB.DAT_SUBJEK_PAJAK SP ON (SP.SUBJEK_PAJAK_ID = OP.SUBJEK_PAJAK_ID) JOIN PBB.REF_ADM_KPPBB ADM ON (ADM.KD_PROPINSI = OP.KD_PROPINSI AND ADM.KD_DATI2 = OP.KD_DATI2) JOIN PBB.POSISI_PEGAWAI POS_PEGAWAI ON (POS_PEGAWAI.KD_KANWIL = ADM.KD_KANWIL AND POS_PEGAWAI.KD_KPPBB = ADM.KD_KPPBB&amp;#x0A;    AND POS_PEGAWAI.KD_JABATAN = &amp;apos;10&amp;apos; AND POS_PEGAWAI.KD_WEWENANG = &amp;apos;10&amp;apos;) JOIN PBB.PEGAWAI PEG ON (PEG.NIP = POS_PEGAWAI.NIP) JOIN PBB.DAT_OP_BUMI OP_BUMI ON (OP_BUMI.KD_PROPINSI = OP.KD_PROPINSI AND OP_BUMI.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND OP_BUMI.KD_KECAMATAN = OP.KD_KECAMATAN&amp;#x0A;    AND OP_BUMI.KD_KELURAHAN = OP.KD_KELURAHAN AND OP_BUMI.KD_BLOK = OP.KD_BLOK&amp;#x0A;    AND OP_BUMI.NO_URUT = OP.NO_URUT AND OP_BUMI.KD_JNS_OP = OP.KD_JNS_OP) JOIN PBB.REF_KECAMATAN KEC ON (KEC.KD_PROPINSI = OP.KD_PROPINSI AND KEC.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND KEC.KD_KECAMATAN = OP.KD_KECAMATAN) JOIN PBB.REF_KELURAHAN KEL ON (KEL.KD_PROPINSI = OP.KD_PROPINSI AND KEL.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND KEL.KD_KECAMATAN = OP.KD_KECAMATAN AND KEL.KD_KELURAHAN = OP.KD_KELURAHAN) LEFT OUTER JOIN PBB.DAT_OP_BANGUNAN OP_BANGUNAN ON (OP_BANGUNAN.KD_PROPINSI = OP.KD_PROPINSI AND OP_BANGUNAN.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND OP_BANGUNAN.KD_KECAMATAN = OP.KD_KECAMATAN&amp;#x0A;    AND OP_BANGUNAN.KD_KELURAHAN = OP.KD_KELURAHAN&amp;#x0A;    AND OP_BANGUNAN.KD_BLOK = OP.KD_BLOK AND OP_BANGUNAN.NO_URUT = OP.NO_URUT&amp;#x0A;    AND OP_BANGUNAN.KD_JNS_OP = OP.KD_JNS_OP) LEFT OUTER JOIN PBB.REF_JPB JPB ON (JPB.KD_JPB = OP_BANGUNAN.KD_JPB)&amp;#x0A;  WHERE OP.KD_PROPINSI = ? AND OP.KD_DATI2 = ? AND OP.KD_KECAMATAN = ?&amp;#x0A;    AND OP.KD_KELURAHAN = ? AND OP.KD_BLOK = ? AND OP.NO_URUT = ?&amp;#x0A;    AND OP.KD_JNS_OP = ? AND POS_PEGAWAI.TGL_AWAL_BERLAKU &amp;lt;= ?&amp;#x0A;    AND POS_PEGAWAI.TGL_AKHIR_BERLAKU &amp;gt;= ?&amp;#x0A;&lt;/SQLStatement>
+&lt;SQLStatement>SELECT OP.KD_PROPINSI, OP.KD_DATI2, OP.KD_KECAMATAN, OP.KD_KELURAHAN,&amp;#x0A;  OP.KD_BLOK, OP.NO_URUT, OP.KD_JNS_OP, OP.JALAN_OP, OP.BLOK_KAV_NO_OP,&amp;#x0A;  OP.RW_OP, OP.RT_OP, OP.TOTAL_LUAS_BUMI, OP.TOTAL_LUAS_BNG, OP.NJOP_BUMI,&amp;#x0A;  OP.NJOP_BNG, SP.NM_WP, SP.JALAN_WP, SP.BLOK_KAV_NO_WP, SP.RW_WP,&amp;#x0A;  SP.RT_WP, SP.KELURAHAN_WP, SP.KOTA_WP, ADM.KD_KANWIL, ADM.KD_KPPBB,&amp;#x0A;  PEG.NIP_BARU, PEG.NM_PEGAWAI, DECODE(OP_BUMI.JNS_BUMI, &amp;apos;1&amp;apos;, &amp;apos;TANAH DAN BANGUNAN&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;KAVLING SIAP BANGUN&amp;apos;,&amp;#x0A;  &amp;apos;3&amp;apos;, &amp;apos;TANAH KOSONG&amp;apos;, &amp;apos;4&amp;apos;, &amp;apos;FASILITAS UMUM&amp;apos;, &amp;apos;5&amp;apos;, &amp;apos;VAKUM&amp;apos;) AS JENIS_BUMI,&amp;#x0A;  JPB.NM_JPB, KEC.NM_KECAMATAN, KEL.NM_KELURAHAN, OP_BUMI.KD_ZNT&amp;#x0A;  FROM&amp;#x0A;       PBB.DAT_OBJEK_PAJAK OP JOIN PBB.DAT_SUBJEK_PAJAK SP ON (SP.SUBJEK_PAJAK_ID = OP.SUBJEK_PAJAK_ID) JOIN PBB.REF_ADM_KPPBB ADM ON (ADM.KD_PROPINSI = OP.KD_PROPINSI AND ADM.KD_DATI2 = OP.KD_DATI2) JOIN PBB.POSISI_PEGAWAI POS_PEGAWAI ON (POS_PEGAWAI.KD_KANWIL = ADM.KD_KANWIL AND POS_PEGAWAI.KD_KPPBB = ADM.KD_KPPBB&amp;#x0A;    AND POS_PEGAWAI.KD_JABATAN = &amp;apos;10&amp;apos; AND POS_PEGAWAI.KD_WEWENANG = &amp;apos;10&amp;apos;) JOIN PBB.PEGAWAI PEG ON (PEG.NIP = POS_PEGAWAI.NIP) JOIN PBB.DAT_OP_BUMI OP_BUMI ON (OP_BUMI.KD_PROPINSI = OP.KD_PROPINSI AND OP_BUMI.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND OP_BUMI.KD_KECAMATAN = OP.KD_KECAMATAN&amp;#x0A;    AND OP_BUMI.KD_KELURAHAN = OP.KD_KELURAHAN AND OP_BUMI.KD_BLOK = OP.KD_BLOK&amp;#x0A;    AND OP_BUMI.NO_URUT = OP.NO_URUT AND OP_BUMI.KD_JNS_OP = OP.KD_JNS_OP) JOIN PBB.REF_KECAMATAN KEC ON (KEC.KD_PROPINSI = OP.KD_PROPINSI AND KEC.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND KEC.KD_KECAMATAN = OP.KD_KECAMATAN) JOIN PBB.REF_KELURAHAN KEL ON (KEL.KD_PROPINSI = OP.KD_PROPINSI AND KEL.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND KEL.KD_KECAMATAN = OP.KD_KECAMATAN AND KEL.KD_KELURAHAN = OP.KD_KELURAHAN) LEFT OUTER JOIN PBB.DAT_OP_BANGUNAN OP_BANGUNAN ON (OP_BANGUNAN.KD_PROPINSI = OP.KD_PROPINSI AND OP_BANGUNAN.KD_DATI2 = OP.KD_DATI2&amp;#x0A;    AND OP_BANGUNAN.KD_KECAMATAN = OP.KD_KECAMATAN&amp;#x0A;    AND OP_BANGUNAN.KD_KELURAHAN = OP.KD_KELURAHAN&amp;#x0A;    AND OP_BANGUNAN.KD_BLOK = OP.KD_BLOK AND OP_BANGUNAN.NO_URUT = OP.NO_URUT&amp;#x0A;    AND OP_BANGUNAN.KD_JNS_OP = OP.KD_JNS_OP) LEFT OUTER JOIN PBB.REF_JPB JPB ON (JPB.KD_JPB = OP_BANGUNAN.KD_JPB)&amp;#x0A;  WHERE OP.KD_PROPINSI = ? AND OP.KD_DATI2 = ? AND OP.KD_KECAMATAN = ?&amp;#x0A;    AND OP.KD_KELURAHAN = ? AND OP.KD_BLOK = ? AND OP.NO_URUT = ?&amp;#x0A;    AND OP.KD_JNS_OP = ? AND POS_PEGAWAI.TGL_AWAL_BERLAKU &amp;lt;= ?&amp;#x0A;    AND POS_PEGAWAI.TGL_AKHIR_BERLAKU &amp;gt;= ?&amp;#x0A;&lt;/SQLStatement>
 &lt;connInfo>Oracle_11:Transient.org.eclipse.datatools.enablement.oracle.connectionProfile:SISMIOP:PBB&lt;/connInfo>
 &lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>
 &lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>
-&lt;windowState height="433" version="1.0" width="788">
-&lt;control height="120" isHideable="true" isVisible="true" name="SQLSourceViewer" width="763"/>
-&lt;control height="158" isHideable="true" isVisible="true" name="DesignViewer" width="776"/>
-&lt;control height="123" isHideable="true" isVisible="true" name="GraphControl" width="768"/>
-&lt;control height="127" isHideable="true" isVisible="false" name="OutlineViewer" width="83"/>
+&lt;windowState height="574" version="1.0" width="1134">
+&lt;control height="159" isHideable="true" isVisible="true" name="SQLSourceViewer" width="1109"/>
+&lt;control height="218" isHideable="true" isVisible="true" name="DesignViewer" width="1122"/>
+&lt;control height="165" isHideable="true" isVisible="true" name="GraphControl" width="1114"/>
+&lt;control height="125" isHideable="true" isVisible="false" name="OutlineViewer" width="77"/>
 &lt;/windowState>
 &lt;/SQLQueryBuilder></property>
             </structure>
@@ -1105,250 +1116,214 @@
         <joint-data-set name="data_gabung" id="204">
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">data_all::BLOK_KAV_NO_OP</property>
-                    <property name="alias">BLOK_KAV_NO_OP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::BLOK_KAV_NO_OP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NM_KECAMATAN</property>
-                    <property name="alias">NM_KECAMATAN</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::NM_KECAMATAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::TOTAL_LUAS_BNG</property>
-                    <property name="alias">TOTAL_LUAS_BNG</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">data_all::TOTAL_LUAS_BNG</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KOTA_WP</property>
-                    <property name="alias">KOTA_WP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KOTA_WP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NJOP_BUMI</property>
-                    <property name="alias">NJOP_BUMI</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::KD_KECAMATAN</property>
-                    <property name="alias">op_bersama::KD_KECAMATAN</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">op_bersama::KD_KECAMATAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::LUAS_BNG_BEBAN</property>
-                    <property name="alias">LUAS_BNG_BEBAN</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">op_bersama::LUAS_BNG_BEBAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_JNS_OP</property>
-                    <property name="alias">data_all::KD_JNS_OP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_JNS_OP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::NJOP_BNG_BEBAN</property>
-                    <property name="alias">NJOP_BNG_BEBAN</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NJOP_BNG</property>
-                    <property name="alias">NJOP_BNG</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NIP_BARU</property>
-                    <property name="alias">NIP_BARU</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::NIP_BARU</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NM_KELURAHAN</property>
-                    <property name="alias">NM_KELURAHAN</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::NM_KELURAHAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KELURAHAN_WP</property>
-                    <property name="alias">KELURAHAN_WP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KELURAHAN_WP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::RT_OP</property>
-                    <property name="alias">RT_OP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::RT_OP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_DATI2</property>
-                    <property name="alias">data_all::KD_DATI2</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_DATI2</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_BLOK</property>
-                    <property name="alias">data_all::KD_BLOK</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_BLOK</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::RT_WP</property>
-                    <property name="alias">RT_WP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::RT_WP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::KD_JNS_OP</property>
-                    <property name="alias">op_bersama::KD_JNS_OP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">op_bersama::KD_JNS_OP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::KD_DATI2</property>
-                    <property name="alias">op_bersama::KD_DATI2</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">op_bersama::KD_DATI2</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::JALAN_WP</property>
-                    <property name="alias">JALAN_WP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::JALAN_WP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::NO_URUT</property>
-                    <property name="alias">op_bersama::NO_URUT</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">op_bersama::NO_URUT</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_KPPBB</property>
-                    <property name="alias">KD_KPPBB</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_KPPBB</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_KANWIL</property>
-                    <property name="alias">KD_KANWIL</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_KANWIL</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_KECAMATAN</property>
-                    <property name="alias">data_all::KD_KECAMATAN</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_KECAMATAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::JALAN_OP</property>
-                    <property name="alias">JALAN_OP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::JALAN_OP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::LUAS_BUMI_BEBAN</property>
-                    <property name="alias">LUAS_BUMI_BEBAN</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">op_bersama::LUAS_BUMI_BEBAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::TOTAL_LUAS_BUMI</property>
-                    <property name="alias">TOTAL_LUAS_BUMI</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">data_all::TOTAL_LUAS_BUMI</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NM_PEGAWAI</property>
-                    <property name="alias">NM_PEGAWAI</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::NM_PEGAWAI</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::KD_PROPINSI</property>
-                    <property name="alias">op_bersama::KD_PROPINSI</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">op_bersama::KD_PROPINSI</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_PROPINSI</property>
-                    <property name="alias">data_all::KD_PROPINSI</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_PROPINSI</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">op_bersama::NJOP_BUMI_BEBAN</property>
-                    <property name="alias">NJOP_BUMI_BEBAN</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NM_WP</property>
-                    <property name="alias">NM_WP</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::NM_WP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::NO_URUT</property>
-                    <property name="alias">data_all::NO_URUT</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::NO_URUT</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">data_all::RW_OP</property>
                     <property name="alias">RW_OP</property>
-                    <property name="analysis">dimension</property>
                     <text-property name="displayName">data_all::RW_OP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_all::KD_KELURAHAN</property>
-                    <property name="alias">data_all::KD_KELURAHAN</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::KD_KELURAHAN</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">data_all::BLOK_KAV_NO_WP</property>
                     <property name="alias">BLOK_KAV_NO_WP</property>
-                    <property name="analysis">dimension</property>
                     <text-property name="displayName">data_all::BLOK_KAV_NO_WP</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">data_all::JENIS_BUMI</property>
-                    <property name="alias">JENIS_BUMI</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_all::JENIS_BUMI</text-property>
+                    <property name="columnName">op_bersama::KD_PROPINSI</property>
+                    <property name="alias">op_bersama::KD_PROPINSI</property>
+                    <text-property name="displayName">op_bersama::KD_PROPINSI</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">op_bersama::KD_BLOK</property>
                     <property name="alias">op_bersama::KD_BLOK</property>
-                    <property name="analysis">dimension</property>
                     <text-property name="displayName">op_bersama::KD_BLOK</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">op_bersama::KD_KELURAHAN</property>
-                    <property name="alias">op_bersama::KD_KELURAHAN</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">op_bersama::KD_KELURAHAN</text-property>
+                    <property name="columnName">data_all::KD_KPPBB</property>
+                    <property name="alias">KD_KPPBB</property>
+                    <text-property name="displayName">data_all::KD_KPPBB</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::JENIS_BUMI</property>
+                    <property name="alias">JENIS_BUMI</property>
+                    <text-property name="displayName">data_all::JENIS_BUMI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::JALAN_WP</property>
+                    <property name="alias">JALAN_WP</property>
+                    <text-property name="displayName">data_all::JALAN_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NJOP_BUMI</property>
+                    <property name="alias">NJOP_BUMI</property>
+                    <text-property name="displayName">data_all::NJOP_BUMI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NIP_BARU</property>
+                    <property name="alias">NIP_BARU</property>
+                    <text-property name="displayName">data_all::NIP_BARU</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::JALAN_OP</property>
+                    <property name="alias">JALAN_OP</property>
+                    <text-property name="displayName">data_all::JALAN_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_JNS_OP</property>
+                    <property name="alias">data_all::KD_JNS_OP</property>
+                    <text-property name="displayName">data_all::KD_JNS_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NM_PEGAWAI</property>
+                    <property name="alias">NM_PEGAWAI</property>
+                    <text-property name="displayName">data_all::NM_PEGAWAI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_BLOK</property>
+                    <property name="alias">data_all::KD_BLOK</property>
+                    <text-property name="displayName">data_all::KD_BLOK</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::KD_JNS_OP</property>
+                    <property name="alias">op_bersama::KD_JNS_OP</property>
+                    <text-property name="displayName">op_bersama::KD_JNS_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::NJOP_BUMI_BEBAN</property>
+                    <property name="alias">NJOP_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BUMI_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::TOTAL_LUAS_BUMI</property>
+                    <property name="alias">TOTAL_LUAS_BUMI</property>
+                    <text-property name="displayName">data_all::TOTAL_LUAS_BUMI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::NO_URUT</property>
+                    <property name="alias">op_bersama::NO_URUT</property>
+                    <text-property name="displayName">op_bersama::NO_URUT</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">data_all::RW_WP</property>
                     <property name="alias">RW_WP</property>
-                    <property name="analysis">dimension</property>
                     <text-property name="displayName">data_all::RW_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_DATI2</property>
+                    <property name="alias">data_all::KD_DATI2</property>
+                    <text-property name="displayName">data_all::KD_DATI2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::LUAS_BNG_BEBAN</property>
+                    <property name="alias">LUAS_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::LUAS_BNG_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_KECAMATAN</property>
+                    <property name="alias">data_all::KD_KECAMATAN</property>
+                    <text-property name="displayName">data_all::KD_KECAMATAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::RT_WP</property>
+                    <property name="alias">RT_WP</property>
+                    <text-property name="displayName">data_all::RT_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::BLOK_KAV_NO_OP</property>
+                    <property name="alias">BLOK_KAV_NO_OP</property>
+                    <text-property name="displayName">data_all::BLOK_KAV_NO_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NM_WP</property>
+                    <property name="alias">NM_WP</property>
+                    <text-property name="displayName">data_all::NM_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::LUAS_BUMI_BEBAN</property>
+                    <property name="alias">LUAS_BUMI_BEBAN</property>
+                    <text-property name="displayName">op_bersama::LUAS_BUMI_BEBAN</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">data_all::NM_JPB</property>
                     <property name="alias">NM_JPB</property>
-                    <property name="analysis">dimension</property>
                     <text-property name="displayName">data_all::NM_JPB</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::NJOP_BNG_BEBAN</property>
+                    <property name="alias">NJOP_BNG_BEBAN</property>
+                    <text-property name="displayName">op_bersama::NJOP_BNG_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_ZNT</property>
+                    <property name="alias">KD_ZNT</property>
+                    <text-property name="displayName">data_all::KD_ZNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KOTA_WP</property>
+                    <property name="alias">KOTA_WP</property>
+                    <text-property name="displayName">data_all::KOTA_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::KD_KECAMATAN</property>
+                    <property name="alias">op_bersama::KD_KECAMATAN</property>
+                    <text-property name="displayName">op_bersama::KD_KECAMATAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::KD_DATI2</property>
+                    <property name="alias">op_bersama::KD_DATI2</property>
+                    <text-property name="displayName">op_bersama::KD_DATI2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KELURAHAN_WP</property>
+                    <property name="alias">KELURAHAN_WP</property>
+                    <text-property name="displayName">data_all::KELURAHAN_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_KANWIL</property>
+                    <property name="alias">KD_KANWIL</property>
+                    <text-property name="displayName">data_all::KD_KANWIL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NM_KELURAHAN</property>
+                    <property name="alias">NM_KELURAHAN</property>
+                    <text-property name="displayName">data_all::NM_KELURAHAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NM_KECAMATAN</property>
+                    <property name="alias">NM_KECAMATAN</property>
+                    <text-property name="displayName">data_all::NM_KECAMATAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NO_URUT</property>
+                    <property name="alias">data_all::NO_URUT</property>
+                    <text-property name="displayName">data_all::NO_URUT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">op_bersama::KD_KELURAHAN</property>
+                    <property name="alias">op_bersama::KD_KELURAHAN</property>
+                    <text-property name="displayName">op_bersama::KD_KELURAHAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_KELURAHAN</property>
+                    <property name="alias">data_all::KD_KELURAHAN</property>
+                    <text-property name="displayName">data_all::KD_KELURAHAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::RT_OP</property>
+                    <property name="alias">RT_OP</property>
+                    <text-property name="displayName">data_all::RT_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::NJOP_BNG</property>
+                    <property name="alias">NJOP_BNG</property>
+                    <text-property name="displayName">data_all::NJOP_BNG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::KD_PROPINSI</property>
+                    <property name="alias">data_all::KD_PROPINSI</property>
+                    <text-property name="displayName">data_all::KD_PROPINSI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_all::TOTAL_LUAS_BNG</property>
+                    <property name="alias">TOTAL_LUAS_BNG</property>
+                    <text-property name="displayName">data_all::TOTAL_LUAS_BNG</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters">
@@ -1660,56 +1635,61 @@
                     </structure>
                     <structure>
                         <property name="position">31</property>
-                        <property name="name">op_bersama::KD_PROPINSI</property>
+                        <property name="name">KD_ZNT</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">32</property>
-                        <property name="name">op_bersama::KD_DATI2</property>
+                        <property name="name">op_bersama::KD_PROPINSI</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">33</property>
-                        <property name="name">op_bersama::KD_KECAMATAN</property>
+                        <property name="name">op_bersama::KD_DATI2</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">34</property>
-                        <property name="name">op_bersama::KD_KELURAHAN</property>
+                        <property name="name">op_bersama::KD_KECAMATAN</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">35</property>
-                        <property name="name">op_bersama::KD_BLOK</property>
+                        <property name="name">op_bersama::KD_KELURAHAN</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">36</property>
-                        <property name="name">op_bersama::NO_URUT</property>
+                        <property name="name">op_bersama::KD_BLOK</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">37</property>
-                        <property name="name">op_bersama::KD_JNS_OP</property>
+                        <property name="name">op_bersama::NO_URUT</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">38</property>
+                        <property name="name">op_bersama::KD_JNS_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
                         <property name="name">LUAS_BUMI_BEBAN</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">39</property>
+                        <property name="position">40</property>
                         <property name="name">LUAS_BNG_BEBAN</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">40</property>
+                        <property name="position">41</property>
                         <property name="name">NJOP_BUMI_BEBAN</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">41</property>
+                        <property name="position">42</property>
                         <property name="name">NJOP_BNG_BEBAN</property>
                         <property name="dataType">decimal</property>
                     </structure>
@@ -1730,9 +1710,1013 @@
                 </structure>
             </list-property>
         </joint-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.dbprofile.sqbDataSet" name="ds_nir" id="239">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">kdPropinsi</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">kdDati2</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">kdKecamatan</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">kdKelurahan</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_5</property>
+                    <property name="paramName">kdBlok</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_6</property>
+                    <property name="paramName">noUrut</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_7</property>
+                    <property name="paramName">kdJnsOp</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_8</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                    <property name="position">8</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(new Date(),"YYYY");</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">NIR</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">KD_ZNT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">NIR</property>
+                    <property name="nativeName">NIR</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">KD_ZNT</property>
+                    <property name="nativeName">KD_ZNT</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT NIR.NIR, BUMI.KD_ZNT
+  FROM PBB.DAT_NIR NIR, PBB.DAT_OP_BUMI BUMI
+  WHERE NIR.KD_PROPINSI = ? AND NIR.KD_DATI2 = ? AND NIR.KD_KECAMATAN = ?
+    AND NIR.KD_KELURAHAN = ? AND BUMI.KD_BLOK = ? AND BUMI.NO_URUT = ?
+    AND BUMI.KD_JNS_OP = ? AND NIR.KD_ZNT = BUMI.KD_ZNT AND NIR.THN_NIR_ZNT = ?
+    AND BUMI.KD_PROPINSI = NIR.KD_PROPINSI AND BUMI.KD_DATI2 = NIR.KD_DATI2
+    AND BUMI.KD_KECAMATAN = NIR.KD_KECAMATAN
+    AND BUMI.KD_KELURAHAN = NIR.KD_KELURAHAN
+]]></xml-property>
+            <structure name="designerState">
+                <property name="version">1.0</property>
+                <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="ds_nir" version="1.0">
+&lt;SQLStatement>SELECT NIR.NIR, BUMI.KD_ZNT&amp;#x0A;  FROM PBB.DAT_NIR NIR, PBB.DAT_OP_BUMI BUMI&amp;#x0A;  WHERE NIR.KD_PROPINSI = ? AND NIR.KD_DATI2 = ? AND NIR.KD_KECAMATAN = ?&amp;#x0A;    AND NIR.KD_KELURAHAN = ? AND BUMI.KD_BLOK = ? AND BUMI.NO_URUT = ?&amp;#x0A;    AND BUMI.KD_JNS_OP = ? AND NIR.KD_ZNT = BUMI.KD_ZNT AND NIR.THN_NIR_ZNT = ?&amp;#x0A;    AND BUMI.KD_PROPINSI = NIR.KD_PROPINSI AND BUMI.KD_DATI2 = NIR.KD_DATI2&amp;#x0A;    AND BUMI.KD_KECAMATAN = NIR.KD_KECAMATAN&amp;#x0A;    AND BUMI.KD_KELURAHAN = NIR.KD_KELURAHAN&amp;#x0A;&lt;/SQLStatement>
+&lt;connInfo>Oracle_11:Transient.org.eclipse.datatools.enablement.oracle.connectionProfile:SISMIOP:PBB&lt;/connInfo>
+&lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>
+&lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>
+&lt;windowState height="408" version="1.0" width="687">
+&lt;control height="123" isHideable="true" isVisible="true" name="SQLSourceViewer" width="662"/>
+&lt;control height="129" isHideable="true" isVisible="true" name="DesignViewer" width="675"/>
+&lt;control height="124" isHideable="true" isVisible="true" name="GraphControl" width="667"/>
+&lt;control height="125" isHideable="true" isVisible="false" name="OutlineViewer" width="198"/>
+&lt;/windowState>
+&lt;/SQLQueryBuilder></property>
+            </structure>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>2</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>2</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>3</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>3</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>4</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>3</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>5</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>3</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>6</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>4</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>7</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>1</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>8</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+          <design:precision>4</design:precision>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>parameterMetaData</name>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+        <joint-data-set name="ds_kode" id="240">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">njop_total</property>
+                    <expression name="expression">row["data_all::NJOP_BUMI"] + row["data_all::NJOP_BNG"] + row["op_bersama::NJOP_BUMI_BEBAN"] + row["op_bersama::NJOP_BNG_BEBAN"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::KD_PROPINSI</property>
+                    <property name="alias">op_bersama::KD_PROPINSI</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::KD_PROPINSI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::TOTAL_LUAS_BNG</property>
+                    <property name="alias">data_all::TOTAL_LUAS_BNG</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::data_all::TOTAL_LUAS_BNG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KOTA_WP</property>
+                    <property name="alias">data_all::KOTA_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KOTA_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::RW_WP</property>
+                    <property name="alias">data_all::RW_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::RW_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::KD_BLOK</property>
+                    <property name="alias">op_bersama::KD_BLOK</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::KD_BLOK</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::BLOK_KAV_NO_OP</property>
+                    <property name="alias">data_all::BLOK_KAV_NO_OP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::BLOK_KAV_NO_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::NJOP_BNG_BEBAN</property>
+                    <property name="alias">op_bersama::NJOP_BNG_BEBAN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::op_bersama::NJOP_BNG_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_ZNT</property>
+                    <property name="alias">data_all::KD_ZNT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_ZNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_KANWIL</property>
+                    <property name="alias">data_all::KD_KANWIL</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_KANWIL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_JNS_OP</property>
+                    <property name="alias">data_all::KD_JNS_OP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_JNS_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_BLOK</property>
+                    <property name="alias">data_all::KD_BLOK</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_BLOK</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NM_WP</property>
+                    <property name="alias">data_all::NM_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NM_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::KD_JNS_OP</property>
+                    <property name="alias">op_bersama::KD_JNS_OP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::KD_JNS_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::NO_URUT</property>
+                    <property name="alias">op_bersama::NO_URUT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::NO_URUT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_DATI2</property>
+                    <property name="alias">data_all::KD_DATI2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_DATI2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::LUAS_BNG_BEBAN</property>
+                    <property name="alias">op_bersama::LUAS_BNG_BEBAN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::op_bersama::LUAS_BNG_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_KECAMATAN</property>
+                    <property name="alias">data_all::KD_KECAMATAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_KECAMATAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ds_nir::NIR</property>
+                    <property name="alias">NIR</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ds_nir::NIR</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::LUAS_BUMI_BEBAN</property>
+                    <property name="alias">op_bersama::LUAS_BUMI_BEBAN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::op_bersama::LUAS_BUMI_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NM_KECAMATAN</property>
+                    <property name="alias">data_all::NM_KECAMATAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NM_KECAMATAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::RT_OP</property>
+                    <property name="alias">data_all::RT_OP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::RT_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::JALAN_OP</property>
+                    <property name="alias">data_all::JALAN_OP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::JALAN_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::NJOP_BUMI_BEBAN</property>
+                    <property name="alias">op_bersama::NJOP_BUMI_BEBAN</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::op_bersama::NJOP_BUMI_BEBAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NM_KELURAHAN</property>
+                    <property name="alias">data_all::NM_KELURAHAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NM_KELURAHAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::BLOK_KAV_NO_WP</property>
+                    <property name="alias">data_all::BLOK_KAV_NO_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::BLOK_KAV_NO_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ds_nir::KD_ZNT</property>
+                    <property name="alias">KD_ZNT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ds_nir::KD_ZNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NM_PEGAWAI</property>
+                    <property name="alias">data_all::NM_PEGAWAI</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NM_PEGAWAI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::RT_WP</property>
+                    <property name="alias">data_all::RT_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::RT_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::TOTAL_LUAS_BUMI</property>
+                    <property name="alias">data_all::TOTAL_LUAS_BUMI</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::data_all::TOTAL_LUAS_BUMI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::KD_KECAMATAN</property>
+                    <property name="alias">op_bersama::KD_KECAMATAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::KD_KECAMATAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::KD_DATI2</property>
+                    <property name="alias">op_bersama::KD_DATI2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::KD_DATI2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NIP_BARU</property>
+                    <property name="alias">data_all::NIP_BARU</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NIP_BARU</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KELURAHAN_WP</property>
+                    <property name="alias">data_all::KELURAHAN_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KELURAHAN_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::RW_OP</property>
+                    <property name="alias">data_all::RW_OP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::RW_OP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NO_URUT</property>
+                    <property name="alias">data_all::NO_URUT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NO_URUT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::op_bersama::KD_KELURAHAN</property>
+                    <property name="alias">op_bersama::KD_KELURAHAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::op_bersama::KD_KELURAHAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_KELURAHAN</property>
+                    <property name="alias">data_all::KD_KELURAHAN</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_KELURAHAN</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NJOP_BNG</property>
+                    <property name="alias">data_all::NJOP_BNG</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::data_all::NJOP_BNG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::JENIS_BUMI</property>
+                    <property name="alias">data_all::JENIS_BUMI</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::JENIS_BUMI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_PROPINSI</property>
+                    <property name="alias">data_all::KD_PROPINSI</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_PROPINSI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NJOP_BUMI</property>
+                    <property name="alias">data_all::NJOP_BUMI</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">data_gabung::data_all::NJOP_BUMI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::NM_JPB</property>
+                    <property name="alias">data_all::NM_JPB</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::NM_JPB</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::JALAN_WP</property>
+                    <property name="alias">data_all::JALAN_WP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::JALAN_WP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">data_gabung::data_all::KD_KPPBB</property>
+                    <property name="alias">data_all::KD_KPPBB</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">data_gabung::data_all::KD_KPPBB</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">data_gabung::data_all::param_1</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">params["kdPropinsi"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_2</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue">params["kdDati2"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_3</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <expression name="defaultValue">params["kdKecamatan"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_4</property>
+                    <property name="dataType">string</property>
+                    <property name="position">4</property>
+                    <expression name="defaultValue">params["kdKelurahan"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_5</property>
+                    <property name="dataType">string</property>
+                    <property name="position">5</property>
+                    <expression name="defaultValue">params["kdBlok"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_6</property>
+                    <property name="dataType">string</property>
+                    <property name="position">6</property>
+                    <expression name="defaultValue">params["noUrut"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_7</property>
+                    <property name="dataType">string</property>
+                    <property name="position">7</property>
+                    <expression name="defaultValue">params["kdJnsOp"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_8</property>
+                    <property name="dataType">date</property>
+                    <property name="position">8</property>
+                    <expression name="defaultValue">new Date()</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::data_all::param_9</property>
+                    <property name="dataType">date</property>
+                    <property name="position">9</property>
+                    <expression name="defaultValue">new Date()</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_1</property>
+                    <property name="dataType">string</property>
+                    <property name="position">10</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_2</property>
+                    <property name="dataType">string</property>
+                    <property name="position">11</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_3</property>
+                    <property name="dataType">string</property>
+                    <property name="position">12</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_4</property>
+                    <property name="dataType">string</property>
+                    <property name="position">13</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_5</property>
+                    <property name="dataType">string</property>
+                    <property name="position">14</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_6</property>
+                    <property name="dataType">string</property>
+                    <property name="position">15</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">data_gabung::op_bersama::param_7</property>
+                    <property name="dataType">string</property>
+                    <property name="position">16</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_1</property>
+                    <property name="dataType">string</property>
+                    <property name="position">17</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_2</property>
+                    <property name="dataType">string</property>
+                    <property name="position">18</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_3</property>
+                    <property name="dataType">string</property>
+                    <property name="position">19</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_4</property>
+                    <property name="dataType">string</property>
+                    <property name="position">20</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_5</property>
+                    <property name="dataType">string</property>
+                    <property name="position">21</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_6</property>
+                    <property name="dataType">string</property>
+                    <property name="position">22</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_7</property>
+                    <property name="dataType">string</property>
+                    <property name="position">23</property>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">ds_nir::param_8</property>
+                    <property name="dataType">string</property>
+                    <property name="position">24</property>
+                    <expression name="defaultValue">Formatter.format(new Date(),"YYYY");</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">data_all::KD_PROPINSI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">data_all::KD_DATI2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">data_all::KD_KECAMATAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">data_all::KD_KELURAHAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">data_all::KD_BLOK</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">data_all::NO_URUT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">data_all::KD_JNS_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">data_all::JALAN_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">data_all::BLOK_KAV_NO_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">data_all::RW_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">data_all::RT_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">data_all::TOTAL_LUAS_BUMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">data_all::TOTAL_LUAS_BNG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">data_all::NJOP_BUMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">data_all::NJOP_BNG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">data_all::NM_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">data_all::JALAN_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">data_all::BLOK_KAV_NO_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">data_all::RW_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">data_all::RT_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">data_all::KELURAHAN_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">data_all::KOTA_WP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">data_all::KD_KANWIL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">data_all::KD_KPPBB</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">data_all::NIP_BARU</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">data_all::NM_PEGAWAI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">data_all::JENIS_BUMI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">data_all::NM_JPB</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">data_all::NM_KECAMATAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">data_all::NM_KELURAHAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">data_all::KD_ZNT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">op_bersama::KD_PROPINSI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">op_bersama::KD_DATI2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">op_bersama::KD_KECAMATAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">op_bersama::KD_KELURAHAN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">op_bersama::KD_BLOK</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">op_bersama::NO_URUT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">op_bersama::KD_JNS_OP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">op_bersama::LUAS_BUMI_BEBAN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">op_bersama::LUAS_BNG_BEBAN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">op_bersama::NJOP_BUMI_BEBAN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">42</property>
+                        <property name="name">op_bersama::NJOP_BNG_BEBAN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">43</property>
+                        <property name="name">NIR</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">44</property>
+                        <property name="name">KD_ZNT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">45</property>
+                        <property name="name">njop_total</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>data_gabung</value>
+                <value>ds_nir</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">inner</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">data_gabung</property>
+                    <property name="rightDataSet">ds_nir</property>
+                    <expression name="leftExpression">dataSetRow["KD_ZNT"]</expression>
+                    <expression name="rightExpression">dataSetRow["KD_ZNT"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
     </data-sets>
     <page-setup>
-        <simple-master-page name="Simple MasterPage" id="2"/>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">13in</property>
+            <property name="width">8.5in</property>
+            <property name="headerHeight">0in</property>
+        </simple-master-page>
     </page-setup>
     <body>
         <grid id="7">
@@ -2839,6 +3823,41 @@ KEPALA DINAS]]></text-property>
                 </structure>
             </list-property>
             <expression name="valueExpr" type="javascript">"NIP. " + row["NIP_BARU"]</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="241">
+            <property name="fontSize">12pt</property>
+            <property name="marginTop">20px</property>
+            <property name="dataSet">ds_kode</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">data_all::NM_WP</property>
+                    <text-property name="displayName">data_gabung::data_all::NM_WP</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["data_all::NM_WP"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NIR</property>
+                    <text-property name="displayName">ds_nir::NIR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NIR"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">KD_ZNT</property>
+                    <text-property name="displayName">ds_nir::KD_ZNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["KD_ZNT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">njop_total</property>
+                    <text-property name="displayName">njop_total</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["njop_total"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">String(row["NIR"]).charAt(0) + String(row["njop_total"]).charAt(0) + row["data_all::NM_WP"].charAt(0) + 
+row["KD_ZNT"].charAt(0) + row["data_all::NM_WP"].charAt(row["data_all::NM_WP"].length-1,row["data_all::NM_WP"].length) +
+(String(row["njop_total"]).length - 3) + String(row["KD_ZNT"]).charAt(1) + String(row["NIR"]).length + String(row["njop_total"]).length</expression>
             <property name="contentType">html</property>
         </text-data>
     </body>

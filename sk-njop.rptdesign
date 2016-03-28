@@ -2782,16 +2782,64 @@ Formatter.format(row["NJOP_BUMI"] + row["NJOP_BNG"] + row["NJOP_BUMI_BEBAN"] + r
                                 <property name="dataType">string</property>
                             </structure>
                         </list-property>
-                        <expression name="valueExpr" type="javascript">row["JALAN_WP"] === null ? "" : row["JALAN_WP"] + " " +
-row["BLOK_KAV_NO_WP"] === null ? "" : row["BLOK_KAV_NO_WP"] + " RT." + 
-row["RT_WP"] === null ? "000" : row["RT_WP"] + "/RW." +
-row["RW_WP"] === null ? "00" : row["RW_WP"] + " " +
-row["KELURAHAN_WP"] === null ? "" : row["KELURAHAN_WP"] + " - " +
-row["KOTA_WP"] === null ? "" : row["KOTA_WP"]</expression>
+                        <expression name="valueExpr">(row["JALAN_WP"] === null ? "" : row["JALAN_WP"]) + " " +
+(row["BLOK_KAV_NO_WP"] === null ? "" : row["BLOK_KAV_NO_WP"]) + " RT." + 
+(row["RT_WP"] === null ? "000" : row["RT_WP"]) + "/RW." +
+(row["RW_WP"] === null ? "00" : row["RW_WP"]) + " " +
+(row["KELURAHAN_WP"] === null ? "" : row["KELURAHAN_WP"]) + " - " +
+(row["KOTA_WP"] === null ? "" : row["KOTA_WP"])</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
             </row>
         </grid>
+        <text id="235">
+            <property name="fontSize">12pt</property>
+            <property name="marginTop">10px</property>
+            <property name="textAlign">justify</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[Nilai Jual Objek Pajak yang tertera dalam lembar ini hanya dapat digunakan untuk kepentingan perhitungan PBB-P2 dan BPHTB, penggunaan selain itu bukan tanggung jawab DPPK Kabupaten Brebes.]]></text-property>
+        </text>
+        <text id="236">
+            <property name="fontSize">12pt</property>
+            <property name="marginTop">15px</property>
+            <property name="marginLeft">425px</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[Diterbitkan di Brebes
+pada tanggal 
+
+KEPALA DINAS]]></text-property>
+        </text>
+        <text-data id="237">
+            <property name="fontSize">12pt</property>
+            <property name="marginTop">50pt</property>
+            <property name="marginLeft">425px</property>
+            <property name="dataSet">data_all</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NM_PEGAWAI</property>
+                    <text-property name="displayName">NM_PEGAWAI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NM_PEGAWAI"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr" type="javascript">row["NM_PEGAWAI"]</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="238">
+            <property name="fontSize">12pt</property>
+            <property name="marginLeft">425px</property>
+            <property name="dataSet">data_all</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NIP_BARU</property>
+                    <text-property name="displayName">NIP_BARU</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NIP_BARU"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr" type="javascript">"NIP. " + row["NIP_BARU"]</expression>
+            <property name="contentType">html</property>
+        </text-data>
     </body>
 </report>

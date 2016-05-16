@@ -25,8 +25,45 @@
     <body>
         <label id="395">
             <property name="fontWeight">bold</property>
+            <property name="marginBottom">1pt</property>
+            <property name="paddingBottom">1pt</property>
             <property name="textAlign">center</property>
-            <text-property name="text">PEMERINTAH KABUPATEN BREBES</text-property>
+            <text-property name="text">PEMERINTAH KABUPATEN BREBES </text-property>
         </label>
+        <label id="396">
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">DINAS PENDAPATAN DAN PENGELOLAAN KEUANGAN</text-property>
+        </label>
+        <label id="397">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">FORMULIR ZONA NILAI TANAH</text-property>
+        </label>
+        <grid id="399">
+            <property name="marginTop">10pt</property>
+            <column id="400"/>
+            <column id="401"/>
+            <column id="402"/>
+            <row id="403">
+                <cell id="404">
+                    <label id="411">
+                        <text-property name="text">KODE KELURAHAN</text-property>
+                    </label>
+                </cell>
+                <cell id="405"/>
+                <cell id="406"/>
+            </row>
+            <row id="407">
+                <cell id="408">
+                    <label id="412">
+                        <text-property name="text">NAMA KELURAHAN</text-property>
+                    </label>
+                </cell>
+                <cell id="409"/>
+                <cell id="410"/>
+            </row>
+        </grid>
     </body>
 </report>
